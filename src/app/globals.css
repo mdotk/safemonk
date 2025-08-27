@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core colors in HSL for shadcn compatibility */
+    --action-green: 157 100% 48%; /* #00F5A0 */
+    --charcoal-900: 233 17% 8%;   /* #121217 */
+    --charcoal-800: 231 15% 12%;  /* #1A1B22 */
+    --charcoal-700: 232 11% 16%;  /* #24252D */
+    --charcoal-600: 233 11% 22%;  /* #33343E */
+    --grey-100: 220 13% 96%;      /* #F5F5F7 */
+    --grey-200: 240 12% 89%;      /* #E1E1E6 */
+    --grey-300: 228 8% 80%;       /* #C8C8CF */
+    --grey-500: 240 2% 56%;       /* #8D8D93 */
+    --warning-yellow: 45 100% 52%; /* #FFD60A */
+    --info-blue: 211 100% 52%;     /* #0A84FF */
+    --danger-red: 3 100% 61%;      /* #FF453A */
+    
+    /* Semantic mappings for shadcn/ui */
+    --background: var(--charcoal-900);
+    --foreground: var(--grey-300);
+    
+    --card: var(--charcoal-800);
+    --card-foreground: var(--grey-100);
+    
+    --primary: var(--action-green);
+    --primary-foreground: var(--charcoal-900);
+    
+    --secondary: var(--charcoal-700);
+    --secondary-foreground: var(--grey-100);
+    
+    --destructive: var(--danger-red);
+    --destructive-foreground: var(--grey-100);
+    
+    --muted: var(--charcoal-700);
+    --muted-foreground: var(--grey-500);
+    
+    --accent: var(--info-blue);
+    --accent-foreground: var(--grey-100);
+    
+    --popover: var(--charcoal-800);
+    --popover-foreground: var(--grey-100);
+    
+    --border: var(--charcoal-600);
+    --input: var(--charcoal-700);
+    --ring: var(--action-green);
+    
+    --radius: 0.375rem; /* 6px - sharp radius */
+  }
+
+  * {
+    @apply border-charcoal-600;
+  }
+
+  body {
+    @apply bg-charcoal-900 text-grey-300 font-sans antialiased;
+    font-size: 1.0625rem; /* 17px for optimal legibility */
+    line-height: 1.6;
+  }
+
+  /* Typography Scale */
+  h1 {
+    @apply text-h1 font-mono font-semibold text-grey-100 leading-tight;
+  }
+  
+  h2 {
+    @apply text-h2 font-mono font-medium text-grey-200 leading-snug mt-8 mb-3;
+  }
+  
+  h3 {
+    @apply text-h3 font-mono font-medium text-grey-100 leading-normal;
+  }
+  
+  p {
+    @apply text-body text-grey-300 leading-relaxed max-w-prose;
+  }
+  
+  label {
+    @apply text-label font-sans text-grey-300;
+  }
+
+  /* Form elements */
+  input,
+  textarea,
+  select {
+    @apply bg-charcoal-700;
+  }
+
+  /* Ensure select values are visible */
+  select {
+    color: #F5F5F7 !important;
+  }
+
+  /* Fix select dropdown visibility */
+  select option {
+    @apply bg-charcoal-700 text-grey-100 !important;
+  }
+
+  /* Force option visibility in all browsers */
+  select:focus option,
+  select option:checked {
+    @apply bg-charcoal-600 text-grey-100 !important;
+  }
+
+  /* Ensure option text is always visible */
+  option {
+    color: rgb(245, 245, 247) !important;
+    background-color: rgb(36, 37, 45) !important;
+  }
+
+  /* Ensure select dropdown arrows are always visible */
+  select[data-select] {
+    background-image: none !important;
+  }
+
+  /* Fix for webkit browsers to ensure dropdown arrow visibility */
+  select::-webkit-appearance-none,
+  select::-webkit-select-arrow {
+    display: none;
+  }
+
+  /* Ensure custom arrow is always visible with high contrast */
+  .select-arrow {
+    color: #F5F5F7 !important;
+    fill: #F5F5F7 !important;
+    stroke: #F5F5F7 !important;
+    z-index: 10 !important;
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Additional styling to ensure dropdown arrows are visible */
+  .relative .lucide-chevron-down {
+    color: #F5F5F7 !important;
+    fill: #F5F5F7 !important;
+    stroke: #F5F5F7 !important;
+    opacity: 1 !important;
+    display: block !important;
+  }
+
+  /* Force maximum specificity for dropdown arrows */
+  div.relative svg.lucide-chevron-down.select-arrow {
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important; 
+    stroke: #FFFFFF !important;
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    right: 0.75rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    z-index: 9999 !important;
+    pointer-events: none !important;
+  }
+
+  /* Force select element text visibility */
+  .relative select,
+  div.relative select,
+  select[style*="color"] {
+    color: #F5F5F7 !important;
+    background-color: #24252D !important;
+  }
+
+  /* Target select elements by attribute - most specific */
+  select[style*="color-scheme"] {
+    color: #F5F5F7 !important;
+    background-color: #24252D !important;
+  }
+
+  /* Ensure selected option text is visible */
+  select option:checked,
+  select option[selected] {
+    color: #F5F5F7 !important;
+    background-color: #33343E !important;
+  }
+}

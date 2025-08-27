@@ -1,0 +1,21 @@
+{
+  "functions": {
+    "src/app/api/files/chunk/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/files/upload/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/files/init-chunked/route.ts": {
+      "maxDuration": 10
+    },
+    "src/app/api/files/[id]/download/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/files/[id]/finalize/route.ts": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["iad1"],
+  "framework": "nextjs"
+}
